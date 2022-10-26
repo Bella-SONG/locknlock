@@ -1,0 +1,996 @@
+@import url(reset.css);
+/* sub1.css */
+@import url(../fontawesome-free-5.15.4-web/css/all.css);
+@font-face {
+	font-family: "Roboto";
+	src: url(../fonts/Roboto-kor-Regular.woff2)
+		url(../fonts/Roboto-kor-Bold.woff2) url(../fonts/Roboto-kor-Medium.woff2;);
+}
+@font-face {
+	font-family: "Noto Sans";
+	src: url(../fonts/NotoSans-Regular.woff2) url(../fonts/NotoSans-Bold.woff2);
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: "Noto Sans KR", "Roboto", "Noto Sans", sans-serif;
+	color: #101820;
+	font-size: 1rem;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.menu_bold {
+	font-weight: 500;
+}
+
+a,
+a:hover {
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+a > span.underLine {
+	display: inline-block;
+	background-image: linear-gradient(transparent 93%, #101820 1px);
+	background-repeat: no-repeat;
+	background-size: 0% 100%;
+	transition: background-size 0.3s ease-in-out 0s;
+}
+/* 호버효과가 적용되는 밑줄은 border-bottom이아니라 linear-gradient로 해줌
+왠지 이부분은 transition이랑 gradient한번더 제대로 복습을 해야할거같음  */
+a:hover > span.underLine {
+	background-size: 100% 100%;
+}
+
+.mobile {
+	display: none !important;
+}
+#wrap {
+	width: 100vw;
+	margin: 0 auto;
+}
+#header {
+	width: 100vw;
+	z-index: 40;
+	position: relative;
+	height: 0;
+	margin: 0 auto;
+}
+.header_wrap {
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 0 auto;
+}
+.header_inner {
+	z-index: 40;
+	position: relative;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+}
+.header_inner:after {
+	content: "";
+	display: none;
+	clear: both;
+}
+.header_inner:hover {
+	border-bottom: 1px solid #cfd1d2;
+	height: 63px;
+	background: #fff;
+	transition: all 0.3s ease-in-out 0s;
+}
+.header_inner:hover h1 a {
+	color: #101820;
+}
+.header_inner:hover .topMenu li button,
+.header_inner:hover .topMenu li button i {
+	color: #101820;
+	cursor: pointer;
+}
+/* 버튼은 모양적용해주고하면 커서가 원래걸로돌아오니까 커서지정 */
+.header_inner:hover .gnb ul li a {
+	color: #101820;
+}
+.header_inner:hover .btn_srch i {
+	color: #101820;
+}
+.header_inner > div {
+	width: 1360px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0 3vw;
+}
+#footer {
+	font-family: "Roboto", "NotoSans", sans-serif;
+	width: 100vw;
+	position: relative;
+	border-top: 1px solid #cfd1d2;
+	margin: 0 auto;
+}
+
+.foot_inner {
+	width: 100vw;
+	box-sizing: border-box;
+}
+
+div.h1logo {
+	width: 128px;
+}
+h1.logo {
+	height: 63px;
+	position: absolute;
+	top: 15px;
+	box-sizing: border-box;
+}
+h1.logo a {
+	color: #101820;
+	font-size: 1.5rem;
+	line-height: 28px;
+	font-weight: bold;
+}
+
+nav.gnb {
+	/* position: absolute; */
+	/* z-index: 300; */
+	/* margin: -63px auto; */
+	width: 524px;
+}
+/* 원래대로라면 밑으로 내려갈것을 마진을 -63ox를 줌으로서 맨 윗단으로 올림 */
+nav.gnb ul {
+	width: 100%;
+	height: 63px;
+	box-sizing: border-box;
+}
+/* position: absolute가 필요없었고 text-align도 마찬가지였던거같다*/
+nav.gnb > ul > li {
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+}
+/* 위에 필요없던 text-align을 여기다가 준듯함 그래 사실 그게맞지 */
+nav.gnb > ul > li > a {
+	position: relative;
+	/* z-index: 300; */
+	display: block;
+	font-family: "Roboto", "NotoSans", sans-serif;
+	color: #101820;
+	font-size: 1rem;
+	font-weight: 500;
+	padding: 19px 1.563rem;
+	height: 63px;
+	box-sizing: border-box;
+	background-image: linear-gradient(transparent 93%, #101820 4px);
+	background-size: 0% 100%;
+	background-repeat: no-repeat;
+	background-position-y: 1px;
+	transition: background-size 0.3s ease-in-out;
+}
+/* border이 아닌 linear-gradient로 밑줄을 그어준다는것(border로는 호버효과주기가 x) */
+
+nav.gnb > ul > li > a:hover {
+	background-size: 100% 100%;
+	font-weight: 600;
+}
+/* hover해서 font가 두꺼워진것도 까먹지말기 */
+nav.gnb > ul > li > div {
+	position: absolute;
+	top: 63px;
+	left: 0;
+	width: 100%;
+	display: none;
+	border-top: 1px solid #ccc;
+}
+/* display none을 여기다주는듯하다 
+또 border-top 굳이 호버시로 넣을필요가없는듯하다
+*/
+
+.header_inner .gnb > ul > li:hover > div {
+	display: block;
+	width: 100%;
+	background: #fff;
+}
+.gnb > ul > li > div > ul {
+	width: 1130px;
+	height: 63px;
+	margin: 0 auto 5px;
+}
+/* 주메뉴의 넓이와 간격을 조정 */
+.gnb > ul > li:nth-of-type(2) > div > ul {
+	height: 280px;
+}
+/* 두번째 매뉴 서브들이 내용이 길어지는 만큼 높이 넓혀서 따로 잡아주는건 당연한거같고 */
+.gnb > ul > li:last-of-type > div > ul {
+	font-weight: 500;
+}
+.gnb > ul > li > div > ul > li {
+	display: inline-block;
+	vertical-align: top;
+	/* line-height: 30px; */
+	margin: 20px 0 0 35px;
+	text-align: left;
+}
+/* 여기다가 마진으로 넓이랑 간격같은걸 전체적으로 잡아준 것같음 */
+/* 일단수정본여기까지 */
+/* .header_inner .gnb > ul > li > div > ul,
+.header_inner .gnb > ul > li > div > ul > li {
+	display: none;
+} 
+ 이건 정말 필요가 없었다
+*/
+
+.gnb > ul > li:nth-of-type(2) > div > ul > li {
+	padding-right: 30px;
+}
+/* product메뉴들의 옆 간격을 맞춰주고 */
+.gnb > ul > li > div > ul > li > a {
+	/* line-height: 24px; */
+	font-family: "Roboto", sans-serif;
+}
+/* 서브 메뉴들의 line-height를 잡아주기 */
+.gnb > ul > li:nth-of-type(2) > div > ul > li > a > span {
+	margin-bottom: 4px;
+}
+.gnb > ul > li:nth-of-type(2) > div > ul > li > ul > li > a > span {
+	line-height: 21px;
+	font-size: 0.9rem;
+	font-family: "Noto Sans KR", sans-serif;
+	color: #54565b;
+	margin: 4px 0;
+}
+.gnb > ul > li > div > ul > li > a > span {
+	line-height: 24px;
+	font-family: "Roboto", sans-serif;
+}
+
+.gnb > ul > li:first-of-type > div > ul > li:first-child {
+	margin-left: -306px;
+}
+
+.gnb > ul > li:nth-of-type(3) > div > ul > li:first-child {
+	margin-left: -55px;
+}
+.gnb > ul > li:nth-of-type(4) > div > ul > li:first-child {
+	margin-left: 155px;
+}
+.gnb > ul > li:last-of-type > div > ul > li:first-child {
+	margin-left: 315px;
+}
+
+/* topmenu*/
+
+.topSrch {
+	position: relative;
+	width: 230px;
+	height: 63px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.topMenu {
+	position: absolute;
+	display: inline-block;
+	top: 0;
+}
+.topMenu > li {
+	position: relative;
+	float: left;
+	padding: 18px 0 19px;
+}
+.topMenu > li:nth-child(2) > button {
+	background: none;
+	border: none;
+	padding: 0;
+	font-size: 0.9rem;
+	font-weight: bold;
+	font-family: "Roboto", "NotoSans", sans-serif;
+	line-height: 15px;
+	padding: 0 30px 0 40px;
+	color: #101820;
+	box-sizing: border-box;
+}
+.topMenu > li:nth-child(2) > button > i {
+	/* transform: rotate(0deg); */
+	transition: transform 0.3s ease-in-out 0s;
+}
+/* .topMenu:hover > li:nth-child(2) > button:active > i {
+	transform: rotate(-180deg);
+} */
+.topMenu > li:nth-child(2) > ul li {
+	display: none;
+	position: absolute;
+	top: 63px;
+	border: 1px solid rgb(16, 24, 32, 0.2);
+	background: #fff;
+	width: 109px;
+	height: 63px;
+	line-height: 15px;
+	padding: 24px 40px;
+	box-sizing: border-box;
+}
+.topMenu > li:nth-child(2) > ul li > a {
+	display: block;
+	font-size: 0.9rem;
+	font-weight: bold;
+	font-family: "Roboto", "NotoSans", sans-serif;
+	line-height: 15px;
+	color: #b2b2b2;
+}
+.topMenu > li:nth-child(2) > ul li:hover a {
+	color: #101820;
+}
+.btn_srch {
+	position: absolute;
+	right: 0;
+	top: 14px;
+}
+
+.btn_srch i {
+	font-size: 1.2rem;
+	color: #101820;
+	cursor: pointer;
+}
+.btn_srch a > span {
+	display: inline-block;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+.btn_srch_close {
+	height: 63px;
+	position: absolute;
+	right: 0;
+	border: none;
+	padding: none;
+	background: none;
+	z-index: 300;
+}
+/* 검색박스 */
+div.srch_wrap {
+	display: flex;
+	display: none;
+	position: relative;
+	width: 100vw;
+	flex-wrap: wrap;
+	justify-content: center;
+	height: 324px;
+	background-color: #fff;
+	z-index: 100;
+}
+.srch_wrap > span {
+	position: absolute;
+	z-index: 300;
+	top: 63px;
+	width: 100%;
+	border-bottom: 1px solid #b2b2b2;
+}
+.srch_wrap > div {
+	position: relative;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+}
+.srchWrap_inner {
+	width: 1360px;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0 3vw;
+}
+
+div.srchWrap_inner > div:first-child {
+	position: relative;
+	height: 63px;
+	width: 128px;
+}
+div.srchWrap_inner h1.logo.b {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	padding: 14px 0;
+	height: 63px;
+	box-sizing: border-box;
+}
+div.srchWrap_inner h1.logo.b a {
+	color: #101820;
+}
+div.srchWrap_inner > form {
+	width: 670px;
+	height: 63px;
+}
+div.srchWrap_inner > form > fieldset:hover {
+	border-bottom: 1px solid #101820;
+}
+div.srchWrap_inner > form input[type="search"] {
+	border: none;
+	font-size: 1rem;
+	font-family: "Roboto", "NotoSans", sans-serif;
+	padding: 22px 0;
+	width: 630px;
+}
+div.srchWrap_inner > form button[type="submit"] {
+	float: right;
+	padding: 10px 0;
+	border: none;
+	background: none;
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+div.srchWrap_inner > form button > span {
+	display: inline-block;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+div.srch_inner {
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 63px auto 0;
+	width: 100%;
+	height: 200px;
+	border-top: 1px solid #eee;
+	box-sizing: border-box;
+}
+div.srch_inner > div {
+	width: 670px;
+	margin: 0 auto;
+}
+div.srch_inner > div h3 {
+	display: block;
+	width: 100%;
+	color: #76777b;
+	font-size: 1rem;
+	font-weight: bold;
+	line-height: 1.5;
+	padding: 30px 0 10px;
+}
+
+div.srch_inner .keyword a {
+	display: inline-block;
+	border: 1px solid #d8d8d8;
+	padding: 4px 10px;
+	border-radius: 4px;
+	background: #f7f7f7;
+	color: #76777b;
+	line-height: 26px;
+	margin: 10px 4px 0 0;
+}
+div.srch_inner a:hover {
+	border: 1px solid #0071e3;
+	background: #fff;
+	color: #0071e3;
+}
+div.srchWrap_inner > div:last-child {
+	position: relative;
+	width: 120px;
+}
+div.srchWrap_inner > div > button:last-of-type i {
+	font-size: 1.5rem;
+	color: #101820;
+	cursor: pointer;
+}
+div.srchWrap_inner > div > button:last-of-type span {
+	display: inline-block;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+/* content */
+
+#content {
+	width: 100%;
+	height: 100%;
+}
+#content h2 {
+	padding: 205px 0 45px;
+	font-size: 64px;
+	font-family: "NotoSans", sans-serif;
+	font-weight: bold;
+	text-align: center;
+}
+
+#content ul {
+	margin: 0 0 51px 811px;
+}
+#content ul > li {
+	display: inline-block;
+}
+#content ul > li > a {
+	border: 1px solid #2b2d35;
+	padding: 6.5px 19.5px;
+	margin: 5px 5px 5px 0;
+	border-radius: 5px;
+	color: #101820;
+	transition: all 0.3s ease-in-out 0s;
+}
+#content ul > li:hover > a {
+	background-color: #101820;
+	color: #fff;
+}
+#content > ul > li > a.current {
+	background: #101820;
+	color: #fff;
+}
+#content table {
+	width: 100%;
+	/* table-layout: fixed; */
+	width: 900px;
+	height: 576px;
+	margin: 0 auto;
+	border-collapse: collapse;
+	border: 1px solid #d8d8d8;
+	border-spacing: 0;
+	empty-cells: show;
+}
+/*  text-align="center를 여기다가 주니까, th이외의 요소만 다 정렬이되었다" */
+#content table thead tr > th {
+	text-align: center;
+	font-size: 15px;
+	line-height: 24px;
+	padding: 12px 15px;
+	border-right: 1px solid #d8d8d8;
+	border-bottom: 1px solid #d8d8d8;
+	background-color: #efefef;
+}
+#content table tbody tr > td {
+	padding: 4px 15px;
+	text-align: center;
+	font-size: 15px;
+	line-height: 24px;
+	border-right: 1px solid #d8d8d8;
+	border-bottom: 1px solid #d8d8d8;
+}
+
+/* 파일받기 효과 */
+
+a.file_down {
+	position: relative;
+	box-sizing: border-box;
+	display: inline-block;
+	overflow: visible;
+	font-size: 16px;
+	color: #101820;
+	padding: 8.5px 19px;
+	border: 1px solid #101820;
+	line-height: 20px;
+	transition: color 0.3s cubic-bezier(0.25, 0.45, 0.5, 1);
+}
+a.file_down:before {
+	content: "";
+	position: absolute;
+	top: -2px;
+	right: -2px;
+	bottom: -2px;
+	left: -2px;
+	background-color: #0071e3;
+	transform: scale(0, 1);
+	transform-origin: right;
+	transition: transform 0.3s cubic-bezier(0.25, 0.45, 0.5, 1);
+}
+a.file_down:hover,
+a.file_down:focus {
+	color: #fff;
+}
+a.file_down:hover::before,
+a.file_down:focus::before {
+	transform: scale(1, 1);
+	transform-origin: left;
+}
+a.file_down span {
+	position: relative;
+	z-index: 10;
+	display: inline-block;
+}
+
+/* slide bar */
+
+.number {
+	width: 100%;
+	padding: 100px 0 120px;
+	margin-bottom: 55px;
+}
+.number > p {
+	position: absolute;
+	right: 0;
+	left: 0;
+	display: inline-block;
+	width: 222px;
+	margin: 0 auto;
+}
+.number a {
+	font-size: 15px;
+	line-height: 34px;
+	padding: 8px 6px;
+	margin: 0 4px;
+	color: #54565b;
+}
+.number a > span {
+	display: inline-block;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+.number a i {
+	display: inline-block;
+}
+.number a.off {
+	color: #ccc;
+	cursor: unset;
+}
+.number > p > a.num {
+	background: linear-gradient(transparent 93%, #0071e3 2px) no-repeat;
+	background-position: center;
+	background-size: 0 100%;
+	transition: background-size 0.3s ease-in-out 0s;
+}
+.number > p > a.num:hover {
+	color: #0071e3;
+	background-size: 100% 100%;
+}
+.number > p > a.num.on {
+	color: #101820;
+	background: linear-gradient(transparent 93%, #101820 2px) no-repeat;
+	background-size: 100% 100%;
+}
+.number > p > a.on:hover {
+	color: #101820;
+	background: linear-gradient(transparent 93%, #101820 2px) no-repeat;
+	background-size: 100% 100%;
+	cursor: auto;
+}
+
+/* footer */
+
+/* top 버튼 */
+#footer {
+	border-top: 1px solid rgba(16, 24, 32, 0.2);
+}
+#footer > div:first-child {
+	position: relative;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	height: 60px;
+}
+#footer > div:first-child > div {
+	width: 1360px;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-content: flex-end;
+	padding: 0 3vw;
+}
+
+.btn_top {
+	position: absolute;
+	top: 40px;
+	width: 40px;
+	height: 40px;
+	background: #101820;
+	color: #fff;
+	transition: background-color 0.3s ease-in-out;
+}
+a.btn_top > i {
+	padding: 12px 13px;
+}
+
+a.btn_top:hover {
+	background: #0071e3;
+}
+
+.btn_top > span {
+	display: block;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+#footer .sitemap {
+	width: 64%;
+}
+.sitemap > ul {
+	display: flex;
+	width: 100%;
+}
+.sitemap > ul li a {
+	color: #000;
+	font-family: "Roboto", "NotoSans", sans-serif;
+	font-size: 0.9rem;
+}
+.sitemap > ul > li:first-of-type {
+	display: inline-block;
+	width: 15%;
+	max-width: 130px;
+}
+.sitemap > ul > li:nth-of-type(2) {
+	width: 30%;
+	max-width: 153px;
+}
+.sitemap > ul > li:nth-of-type(3) {
+	width: 25%;
+	max-width: 146px;
+}
+.sitemap > ul > li:nth-of-type(4) {
+	width: 15%;
+	max-width: 113px;
+}
+
+.sitemap > ul > li > a {
+	font-weight: 600;
+	color: #101820;
+}
+/* 이렇게 하니 맨윗줄만 색이 진해졌음 */
+.sitemap > ul > li > div > ul {
+	padding-top: 25px;
+}
+.sitemap > ul > li > div > ul > li {
+	padding: 6px 0;
+}
+.sitemap > ul > li > div > ul > li > a {
+	color: #54565b;
+}
+/* footer */
+.main_footer_wrap {
+	position: relative;
+	width: 100vw;
+	justify-content: center;
+	height: 150px;
+	margin: 0 auto;
+}
+.main_footer {
+	position: relative;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+}
+.main_footer > div {
+	width: 1360px;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding: 0 3vw;
+	/* height: 200px; */
+}
+.main_footer > div > div:first-of-type {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: space-between;
+	box-sizing: border-box;
+}
+.main_footer > div > div:first-of-type {
+	width: 30%;
+}
+.main_footer div > div > p:first-of-type {
+	font-size: 1.25rem;
+	font-weight: bold;
+	padding: 0 0 22px;
+}
+.main_footer div > div > address {
+	font-size: 0.8rem;
+	line-height: 21px;
+	padding-bottom: 5px;
+	color: #54565b;
+}
+.main_footer div > div > p:last-of-type {
+	font-size: 0.8rem;
+	line-height: 21px;
+	color: #54565b;
+}
+.inner_footer_wrap {
+	position: relative;
+	width: 100vw;
+	justify-content: center;
+	height: 240px;
+	justify-content: center;
+	margin: 0 auto;
+}
+.inner_footer {
+	position: relative;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+}
+.inner_footer > div {
+	width: 1360px;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: space-between;
+	box-sizing: border-box;
+	padding: 0 3vw;
+}
+.inner_footer > div > div > ul > li {
+	display: inline-block;
+}
+
+.inner_footer > div > div:first-of-type {
+	width: 100%;
+}
+.inner_footer > div > div:first-of-type ul li a {
+	font-weight: bold;
+}
+.inner_footer > div > div:first-of-type ul:first-of-type li a {
+	color: #101820;
+}
+.inner_footer > div > div:first-of-type ul:first-of-type li a i {
+	font-size: 1rem;
+}
+.inner_footer > div > div:first-of-type ul:first-of-type li > a > i {
+	padding-left: 13px;
+}
+
+.inner_footer > div > div:first-of-type > ul:first-of-type > li:first-child {
+	border-right: 1px solid #54565b;
+	padding-right: 13px;
+}
+.inner_footer > div > div:first-of-type > ul:first-of-type > li:last-child {
+	padding-left: 13px;
+}
+.inner_footer > div > div:first-of-type > ul {
+	padding-top: 20px;
+}
+.inner_footer > div > div:first-of-type ul:last-of-type li a i {
+	color: #101820;
+	font-size: 1.5rem;
+	padding-right: 10px;
+}
+
+.inner_footer > div > div:first-of-type ul:last-of-type > li > a > span {
+	display: inline-block;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+.inner_footer > div > div:first-of-type ul:last-of-type > li > a {
+	padding: 0 10px 0 0;
+	color: #101820;
+}
+.inner_footer > div > div:first-of-type ul:last-of-type > li > a:hover i {
+	color: #54565b;
+}
+
+.inner_footer > div > div:first-of-type ul:last-of-type > li:last-of-type > a {
+	display: inline-block;
+	width: 22px;
+	background-image: url(../images/icon_blog_b.png);
+	background-size: 16px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+.inner_footer > div:first-of-type ul:last-of-type > li:last-of-type > a:hover {
+	background-image: url(../images/icon_blog.png) no-repeat 50% 50%;
+}
+.inner_footer div:nth-of-type(2) > ul {
+	display: inline-block;
+	padding-top: 60px;
+}
+.inner_footer div:nth-of-type(2) > ul > li {
+	padding: 0 0 0 13px;
+}
+.inner_footer div:nth-of-type(2) > ul > li a {
+	font-size: 0.9rem;
+	color: #54565b;
+	border-right: 1px solid #54565b;
+	padding-right: 13px;
+}
+
+.inner_footer div:nth-of-type(2) > ul > li:first-child {
+	padding-left: 0;
+}
+.inner_footer div:nth-of-type(2) > ul > li:last-child a {
+	border: none;
+}
+.inner_footer div.toggle_family {
+	position: relative;
+	width: 100%;
+	height: 65px;
+	box-sizing: border-box;
+	/* display: flex;
+		justify-content: end; */
+}
+
+div.toggle_family > .footer_toggle {
+	float: right;
+	text-align: left;
+	width: 210px;
+	padding: 0;
+	border: none;
+	background: none;
+	border-bottom: 1px solid #54565b;
+	cursor: pointer;
+	margin-bottom: 35px;
+}
+div.toggle_family .footer_toggle::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+div.toggle_family > .footer_toggle > i {
+	float: right;
+	transform: rotate(0deg);
+	font-size: 0.8rem; /* 13px */
+	transition: transform 0.3s ease-in-out 0s;
+}
+
+div.toggle_family > ul {
+	display: none;
+	float: right;
+	margin-top: -210px;
+	margin-right: -210px;
+	width: 210px;
+	height: 183px;
+	border: 1px solid #ccc;
+	background: #f7f7f7;
+	box-sizing: border-box;
+	padding: 20px 0;
+	position: relative;
+	z-index: 10;
+}
+
+div.toggle_family > ul a {
+	display: block;
+	padding: 1px 70px 1px 20px;
+	font-size: 0.8rem;
+	color: #101820;
+}
+div.toggle_family.on ul {
+	display: block;
+}
+.turn > i {
+	transform: rotate(180deg) !important;
+}
+.btn_mall {
+	background: url(../images/homepage_banner3.png) no-repeat 0 0;
+	background-size: 99px;
+	position: absolute;
+	right: 30px;
+	bottom: 30px;
+	height: 99px;
+	width: 99px;
+	display: block;
+	z-index: 300;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+.bg_fff {
+	background: #fff;
+}
+.txt_black {
+	color: #102820 !important;
+}
+
+/* 검색창 내릴시 블러 */
+.blur_filter {
+	display: none;
+	backdrop-filter: blur(3px);
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	z-index: 20;
+}
+.blur_filter.on {
+	display: block;
+}
+
+#backdrop {
+	position: fixed;
+	top: 0;
+	right: 0;
+	transition: opacity 0.1s cubic-bezier(0.25, 0.45, 0.5, 1);
+}
+#backdrop.isactive {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(216, 216, 216, 0.1);
+	backdrop-filter: blur(3px);
+	opacity: 1;
+	cursor: pointer;
+}
